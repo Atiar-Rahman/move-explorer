@@ -6,6 +6,9 @@ const Movies = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+
+  
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -23,6 +26,39 @@ const Movies = () => {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchSearchData = async (name) => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const res = await fetch(
+        `https://api.tvmaze.com/singlesearch/shows?q=${name}`,
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch movies");
+      }
+
+      const data = await res.json();
+      setMoves([data]);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const searchName = e.target.name.value.trim();
+
+    if (searchName) {
+      fetchSearchData(searchName);
+    } else {
+      fetchData();
     }
   };
 
@@ -97,6 +133,27 @@ const Movies = () => {
   return (
     <main className="min-h-screen bg-black px-6 py-14 md:px-10 lg:px-12">
       <div className="mx-auto max-w-7xl">
+        <div className="mb-10 flex justify-center px-4">
+          <form
+            onSubmit={handleSearch}
+            className="flex w-full max-w-2xl items-center overflow-hidden rounded-full border border-white/10 bg-white/5 p-1.5 shadow-lg focus-within:border-red-500/50 focus-within:shadow-red-500/10"
+          >
+            <input
+              type="text"
+              placeholder="Search movie name..."
+              className="min-w-0 flex-1 bg-transparent px-5 py-3 text-sm text-white outline-none placeholder:text-gray-500"
+              name="name"
+            />
+
+            <button
+              type="submit"
+              className="rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white  transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+
         {/* Header */}
         <div
           className="mb-10 flex flex-col justify-between gap-4
