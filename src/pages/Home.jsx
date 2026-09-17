@@ -1,11 +1,12 @@
 import Banner from "../components/Banner";
+import Movies from "../components/Movies";
 
 
 const Home = () => {
     return (
         <div>
             <Banner/>
-            <h1>this is home page</h1>
+            <Movies/>
         </div>
     );
 };

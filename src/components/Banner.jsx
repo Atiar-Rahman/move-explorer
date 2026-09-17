@@ -2,6 +2,7 @@
 import { LiaInternetExplorer } from "react-icons/lia";
 import { FaPlay } from "react-icons/fa";
 import banner1 from "../assets/banner1.jpg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -38,7 +39,7 @@ const Banner = () => {
               transition duration-300 hover:bg-red-700 hover:scale-105"
             >
               <LiaInternetExplorer className="text-2xl" />
-              Explore More
+              <Link to='/movies'>Explore More</Link>
             </button>
 
             <button
