@@ -1,10 +1,10 @@
 import { IoTvSharp } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navLinkStyle = ({ isActive }) =>
-    `relative px-4 py-2 text-sm md:text-base font-medium transition-all duration-300
+    `relative px-4 text-sm md:text-base font-medium transition-all duration-300
     ${isActive ? "text-red-500" : "text-gray-300 hover:text-white"}`;
 
   const Navlinks = (
@@ -108,7 +108,9 @@ const Navbar = () => {
             transition-all duration-300 hover:border-red-500
             hover:bg-red-600 hover:text-white"
           >
-            <FaSearch />
+            <Link to={'/movies'}>
+              <FaSearch />
+            </Link>
           </button>
 
           {/* Explore Button */}

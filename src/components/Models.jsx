@@ -16,37 +16,27 @@ const Models = ({isModalOpen,setIsModalOpen,move, releaseDate}) => {
       <div>
         {isModalOpen && (
           <div
-            className="fixed inset-0 z-999 flex items-center justify-center
-          bg-black/80 p-4 backdrop-blur-sm"
-            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}
           >
             {/* Modal */}
             <div
-              className="relative max-h-[90vh] w-full max-w-4xl
-            overflow-y-auto rounded-2xl border border-white/10
-            bg-gray-950 text-white shadow-2xl"
+              className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-white/10 bg-gray-95 text-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* ================= CLOSE ICON ================= */}
+              {/* close button*/}
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="absolute right-4 top-4 z-50 flex h-10 w-10
-              items-center justify-center rounded-full
-              bg-black/70 text-white transition
-              hover:bg-red-600"
-                aria-label="Close modal"
+                className="absolute right-4 top-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white transition hover:bg-red-600" aria-label="Close modal"
               >
                 <FaTimes />
               </button>
 
-              {/* ================= BACKDROP ================= */}
+              {/* BACKDROP  */}
               <div className="relative h-64 sm:h-80 md:h-96">
                 <img
                   src={
-                    move.image?.original ||
-                    move.image?.medium ||
-                    "https://via.placeholder.com/1000x500?text=No+Image"
+                    move.image?.original || move.image?.medium || "https://via.placeholder.com/1000x500?text=No+Image"
                   }
                   alt={move.name}
                   className="h-full w-full object-cover"
@@ -54,10 +44,7 @@ const Models = ({isModalOpen,setIsModalOpen,move, releaseDate}) => {
 
                 {/* Gradient */}
                 <div
-                  className="absolute inset-0
-                bg-linear-to-t
-                from-gray-950 via-gray-950/30
-                to-transparent"
+                  className="absolute inset-0 bg-linear-to-t from-gray-950 via-gray-950/30 to-transparent"
                 />
 
                 {/* Movie Name */}
@@ -68,31 +55,28 @@ const Models = ({isModalOpen,setIsModalOpen,move, releaseDate}) => {
                 </div>
               </div>
 
-              {/* ================= CONTENT ================= */}
+              {/*  content  */}
               <div className="p-6 sm:p-8">
                 {/* Rating + Release */}
                 <div
-                  className="mb-6 flex flex-wrap items-center gap-3
-                text-sm"
+                  className="mb-6 flex flex-wrap items-center gap-3 text-sm"
                 >
                   <div
-                    className="flex items-center gap-2 rounded-full
-                  bg-yellow-500/10 px-4 py-2 text-yellow-400"
+                    className="flex items-center gap-2 rounded-full bg-yellow-500/10 px-4 py-2 text-yellow-400"
                   >
                     <FaStar />
                     <span>Rating: {move.rating?.average || "N/A"}</span>
                   </div>
 
                   <div
-                    className="flex items-center gap-2 rounded-full
-                  bg-white/5 px-4 py-2 text-gray-300"
+                    className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-gray-300"
                   >
                     <FaCalendarAlt className="text-red-500" />
                     <span>Release: {releaseDate}</span>
                   </div>
                 </div>
 
-                {/* ================= OVERVIEW ================= */}
+                {/* overview*/}
                 {move.summary && (
                   <div className="mb-7">
                     <h3 className="mb-3 text-xl font-bold">Overview</h3>
@@ -106,7 +90,7 @@ const Models = ({isModalOpen,setIsModalOpen,move, releaseDate}) => {
                   </div>
                 )}
 
-                {/* ================= EXTRA INFORMATION ================= */}
+                {/* extra Information */}
                 <h3 className="mb-4 text-xl font-bold">Movie Information</h3>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -198,14 +182,12 @@ const Models = ({isModalOpen,setIsModalOpen,move, releaseDate}) => {
                   )}
                 </div>
 
-                {/* ================= CLOSE BUTTON ================= */}
+                {/* close button */}
                 <div className="mt-8 flex justify-end">
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="flex items-center gap-2 rounded-lg
-                  bg-red-600 px-6 py-2.5 font-semibold
-                  transition hover:bg-red-700"
+                    className="flex items-center gap-2 rounded-lg bg-red-600 px-6 py-2.5 font-semibold transition hover:bg-red-700"
                   >
                     <FaTimes />
                     Close

@@ -44,17 +44,6 @@ const Move = ({ move }) => {
             via-transparent to-transparent"
           />
 
-          {/* Rating */}
-          {/* {move.rating?.average && (
-            <div
-              className="absolute right-3 top-3 flex items-center gap-1
-              rounded-full bg-black/80 px-3 py-1.5
-              text-sm font-semibold text-yellow-400"
-            >
-              <FaStar />
-              {move.rating.average}
-            </div>
-          )} */}
         </div>
 
         {/* Card Info */}

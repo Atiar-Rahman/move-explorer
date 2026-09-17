@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Move from "./Move";
+import { IoIosSearch } from "react-icons/io";
 
 const Movies = () => {
   const [moves, setMoves] = useState([]);
@@ -147,8 +148,9 @@ const Movies = () => {
 
             <button
               type="submit"
-              className="rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white  transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20"
+              className="rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white  transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20 flex justify-center items-center gap-3"
             >
+              <IoIosSearch className="text-2xl font-bold " />
               Search
             </button>
           </form>
